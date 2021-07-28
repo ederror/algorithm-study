@@ -1,8 +1,6 @@
 # Baekjoon - 2263 
 def findRoot(post_s, post_e, inord_s, inord_e):
     global tree, postorder, inorder
-    #if (post_s == post_e) or (inord_s == inord_e):
-    #    return 0
 
     root = postorder[post_e-1]
     idx = inorder.index(root)
