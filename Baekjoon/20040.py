@@ -32,7 +32,7 @@ for i in range(m):
     v, w = map(int, input().split())
 
     if find(v) == find(w):
-        if flag == 0:
+        if flag == 0:2
             flag = i+1
     else:
         union(v, w)
