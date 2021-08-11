@@ -22,26 +22,22 @@ N = int(input())
 parent = [i for i in range(N)]
 planet = []
 edge = []
-for _ in range(N):
-    x, y, z = map(int, input().split())
-    planet.append([x, y, z])
-print(planet)
-planet.sort(key = lambda x: (x[0], x[1], x[2]))
-print(planet)
-
 for i in range(N):
-    for j in range(i+1, N):
-        cost = min(abs(planet[i][0] - planet[j][0]) , abs(planet[i][1] - planet[j][1]), abs(planet[i][2] - planet[j][2]))
-        edge.append([i, j, cost])
-        
+    x, y, z = map(int, input().split())
+    planet.append([i, x, y, z])
+
+for i in range(1, 4):
+    planet.sort(key = lambda x : x[i])
+    for j in range(N-1):
+        p1, p2 = planet[j], planet[j+1]
+        edge.append([p1[0], p2[0], abs(p1[i] - p2[i])])
+    
 edge.sort(key = lambda x : x[2])
 
-cnt = 0
 answer = 0
-while cnt < N-1 :
-    e = edge.pop(0)
+for e in edge:
+    #e = edge.pop(0)
     if find(e[0]) != find(e[1]):
         union(e[0], e[1])
         answer += e[2]
-        cnt += 1
 print(answer)
