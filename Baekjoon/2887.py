@@ -36,7 +36,6 @@ edge.sort(key = lambda x : x[2])
 
 answer = 0
 for e in edge:
-    #e = edge.pop(0)
     if find(e[0]) != find(e[1]):
         union(e[0], e[1])
         answer += e[2]
