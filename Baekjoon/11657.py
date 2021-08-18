@@ -23,7 +23,7 @@ for _ in range(N-1):
 # 음수 사이클 확인
 for v in range(N):
     for w, cost in graph[v]:
-        if dist[w] > dist[v] + cost:
+        if dist[v] != INF and dist[w] > dist[v] + cost:
             flag = 1
 
 if flag:
