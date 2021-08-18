@@ -7,7 +7,7 @@ V, E = map(int, input().split())
 dist = [[INF]*V for _ in range(V)]
 answer = INF
 
-for _ in range(E):
+for _ in range(E): 
     a, b, c = map(int, input().split())
     dist[a-1][b-1] = c
     
