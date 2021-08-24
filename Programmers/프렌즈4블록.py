@@ -9,10 +9,7 @@ def solution(m, n, board):
         for i in range(n-1):
             for j in range(m-1):
                 if (board[i][j:j+2]+board[i+1][j:j+2]).count(board[i][j]) == 4 and board[i][j] != "X":
-                    toBeDeleted.add((i,j))
-                    toBeDeleted.add((i+1,j))
-                    toBeDeleted.add((i,j+1))
-                    toBeDeleted.add((i+1,j+1))
+                    toBeDeleted.update([(i,j),(i+1,j),(i,j+1),(i+1,j+1)])
                 
         if not toBeDeleted:
             break
